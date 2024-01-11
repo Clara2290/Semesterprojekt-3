@@ -27,7 +27,7 @@ Ts=1/Fs
 t = Ts*np.arange(0, len(ecg0),1)
 
 
-# Anvend filteret på EKG-signalet med zero-phase filtering
+# Anvend filteret på EKG-signalet 
 filtered_ecg0 = signal.filtfilt(b, a, ecg0)
 
 
