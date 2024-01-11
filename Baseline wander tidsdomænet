@@ -1,0 +1,56 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import signal
+import wfdb
+import os
+
+
+# Angiv stien til EKG-filen
+desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
+file_path = os.path.join(desktop_path, 'ecg-id-database-1.0.0', 'Person_02', 'rec_1')
+
+
+# Læs EKG signalerne
+signals, info = wfdb.rdsamp(file_path, channels=[0], sampfrom=0, sampto=2000)
+ecg0 = signals[:, 0]
+
+
+# Samplingsfrekvens og Cutoff-frekvens for højpasfilteret
+Fs = 500  # Samplingsfrekvens
+Fc = 0.667  # Cutoff-frekvens
+numtabs = 501  # Antal tabs
+Ts = 1/Fs  # Samplingstidsinterval
+
+
+# Generer tidsarray for plot
+t = Ts*np.arange(0, len(ecg0),1)
+
+
+# Design højpasfilteret
+lp = signal.firwin(numtabs, Fc, fs=Fs, pass_zero=False)
+
+
+# Anvend filteret på EKG-signalet
+filtered_ecg0 = signal.lfilter(lp, [1.0], ecg0)
+
+
+# Plot det oprindelige EKG signal med tiden på x-aksen
+plt.subplot(2, 1, 1)
+plt.plot(t, ecg0)
+plt.title('Oprindeligt EKG Signal')
+plt.xlabel('Tid (s)')
+plt.ylabel('Amplitude')
+plt.grid(True)
+
+
+# Plot det filtrerede EKG signal med tiden på x-aksen
+plt.subplot(2, 1, 2)
+plt.plot(t, filtered_ecg0)
+plt.title('Filtreret EKG Signal')
+plt.xlabel('Tid (s)')
+plt.ylabel('Amplitude')
+plt.grid(True)
+
+
+plt.tight_layout()
+plt.show()
