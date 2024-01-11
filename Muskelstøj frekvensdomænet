@@ -1,0 +1,40 @@
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import convolve
+import wfdb
+
+
+# Angiv stien til EKG-filen
+desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
+file_path = os.path.join(desktop_path, 'ecg-id-database-1.0.0', 'Person_02', 'rec_1')
+
+
+# Læs EKG signalerne
+signals, info = wfdb.rdsamp(file_path, channels=[0], sampfrom=0, sampto=1000)
+ecg0 = signals[:, 0]
+
+
+# Opret et 8-punkts Moving Average (MA) filter
+ma_filter = np.ones(8) / 8
+
+
+# Anvend MA-filteret på EKG-signalet
+filtered_ecg0 = convolve(ecg0, ma_filter, mode='same')  # 'same' returnerer output af samme længde som ecg0
+
+
+# Plot det originale og det filtrerede signal
+plt.subplot(2, 1, 1)
+plt.magnitude_spectrum(ecg0, label='Original EKG')
+plt.title('Originalt EKG Signal')
+plt.xlim(0,0.2)
+
+
+plt.subplot(2, 1, 2)
+plt.magnitude_spectrum(filtered_ecg0, label='Filtreret EKG (MA)')
+plt.title('EKG Signal efter MA-filter')
+plt.xlim(0,0.2)
+
+
+plt.tight_layout()
+plt.show()
