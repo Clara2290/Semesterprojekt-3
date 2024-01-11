@@ -1,0 +1,51 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import signal
+import wfdb
+import os
+
+
+# Angiv stien til EKG-filen
+desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
+file_path = os.path.join(desktop_path, 'ecg-id-database-1.0.0', 'Person_02', 'rec_1')
+
+
+# Læs EKG signalerne
+signals, info = wfdb.rdsamp(file_path, channels=[0], sampfrom=0, sampto=2000)
+ecg0 = signals[:, 0]
+
+
+# Samplingsfrekvens og Notch-frekvens
+Fs = 500  # Samplingsfrekvens
+f0 = 50   # Notch-frekvens
+Q = 10
+omega = f0/(Fs/2)
+#Bereng filterkoefficienterne
+b,a=signal.iirnotch(omega, Q)
+Ts=1/Fs
+# Generer tidsarray for plot
+t = Ts*np.arange(0, len(ecg0),1)
+
+
+# Anvend filteret på EKG-signalet med zero-phase filtering
+filtered_ecg0 = signal.filtfilt(b, a, ecg0)
+
+
+# Plot det oprindelige EKG signal
+plt.subplot(2, 1, 1)
+plt.plot(t,ecg0)
+plt.title('Oprindeligt EKG Signal')
+plt.xlabel('Tid (s)')
+plt.grid(True)
+
+
+# Plot det filtrerede EKG signal (med netstøj fjernet)
+plt.subplot(2, 1, 2)
+plt.plot(t,filtered_ecg0)
+plt.title('EKG Signal med netstøj fjernet')
+plt.xlabel('Tid (s)')
+plt.grid(True)
+
+
+plt.tight_layout()
+plt.show()
