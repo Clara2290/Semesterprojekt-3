@@ -1,0 +1,48 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import signal
+import wfdb
+import os
+
+
+# Angiv stien til EKG-filen
+desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
+file_path = os.path.join(desktop_path, 'ecg-id-database-1.0.0', 'Person_77', 'rec_1')
+
+
+# Læs EKG signalerne
+signals, info = wfdb.rdsamp(file_path, channels=[0], sampfrom=0, sampto=3000)
+ecg0 = signals[:, 0]
+
+
+# Design højpasfilteret
+Fs = 500  # Samplingsfrekvens
+Fc = 0.667  # Cutoff-frekvens
+numtabs = 501  # Antal tabs
+lp = signal.firwin(numtabs, Fc, fs=Fs, pass_zero=False)
+
+
+# Plot det oprindelige EKG signal
+plt.subplot(2, 1, 1)
+plt.magnitude_spectrum(ecg0, Fs=Fs)
+plt.title('Oprindeligt EKG Signal')
+plt.xlim(0,25)
+plt.ylim(0,0.030)
+plt.grid(True)
+
+
+# Anvend filteret på det EKG signal
+filtered_ecg0 = signal.filtfilt(lp, [1.0], ecg0)
+
+
+# Plot det filtrerede EKG signal
+plt.subplot(2, 1, 2)
+plt.magnitude_spectrum(filtered_ecg0, Fs=Fs, Fc=Fc)
+plt.title('Filtreret EKG Signal')
+plt.grid(True)
+plt.xlim(0,25)
+plt.ylim(0,0.030)
+
+
+plt.tight_layout()
+plt.show()
