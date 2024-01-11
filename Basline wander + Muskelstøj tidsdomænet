@@ -50,3 +50,6 @@ plt.subplot(2, 1, 2)
 plt.plot(t,ecg_hp_filtered)
 plt.title('Filtreret EKG Signal')
 plt.grid(True)
+
+plt.tight_layout()
+plt.show()
