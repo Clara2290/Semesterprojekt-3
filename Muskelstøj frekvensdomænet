@@ -5,12 +5,12 @@ from scipy.signal import convolve
 import wfdb
 
 
-# Angiv stien til EKG-filen
+# Angiver stien til EKG-filen
 desktop_path = os.path.join(os.path.expanduser('~'), 'Desktop')
 file_path = os.path.join(desktop_path, 'ecg-id-database-1.0.0', 'Person_02', 'rec_1')
 
 
-# Læs EKG signalerne
+# Læser EKG signalerne
 signals, info = wfdb.rdsamp(file_path, channels=[0], sampfrom=0, sampto=1000)
 ecg0 = signals[:, 0]
 
