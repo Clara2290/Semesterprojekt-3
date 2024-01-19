@@ -1,0 +1,7 @@
+<Indkaldelese>
+    <cpr>{cpr}</cpr>
+    <navn>{navn}</navn>
+    <tidspunkt>{tidspunkt}</tidspunkt>
+    <behandlingssted>{behandlingssted}</behandlingssted>
+    <afdeling>{afdeling}</afdeling>
+</Indkaldelese>
