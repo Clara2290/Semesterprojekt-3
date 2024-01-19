@@ -1,0 +1,89 @@
+body {
+    margin-top: 30px;
+    text-align: center;
+    background-color: cornflowerblue; /* Tilføj blå baggrund til hele siden */
+}
+
+.container {
+    background-color: white;
+    padding: 100px;
+    border: 2px solid #ccc;
+    display: inline-block;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.text1 {
+    font-size: 60px;
+}
+
+.text2{
+
+	font-size: 40px;
+}
+
+.text3{
+    font-size: 20px;
+}
+.text4{
+
+    font-size: 15px;
+}
+
+.knap1{
+
+	font-size: 15px;
+}
+
+.button-large {
+    font-size: 20px;
+    padding: 20px 40px;
+    margin: 10px;
+    border: 4px solid rgba(71, 62, 145, 0.922);
+    border-radius:25px;
+    background:rgba(255, 255, 255, 0.968);
+}
+
+.button-large:hover {
+    border: 6px solid rgba(71, 62, 145, 0.922);
+}
+
+.login-button {
+    position: center;
+    border: 2px solid rgb(10, 54, 134);
+    cursor: pointer;
+    background:rgba(255, 255, 255, 0.968);
+    border-radius: 5px;
+}
+
+.login-button:hover {
+    border: 3px solid rgba(71, 62, 145, 0.922);
+}
+
+.back-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; 
+    width: 90px; 
+    height: 50px;
+    padding: 10px 20px;
+    border: white;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 40px;
+}
+
+.back-button:hover {
+    border: 2px solid rgba(71, 62, 145, 0.922);
+}
+.ugyldig-button {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid rgb(242, 31, 31);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.ugyldig-button:hover {
+    border: 3px solid rgb(242, 31, 31);
+}

@@ -1,0 +1,200 @@
+
+body {
+    margin-top: 50px;
+    text-align: center;
+    background-color: cornflowerblue;
+}
+
+.containerbilleder {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid white;
+    display: inline-block; 
+    width: 50%;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-right: 20px; 
+}
+
+.containerkalender{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    width: 50%;
+}
+
+img {
+    height: 150px;
+    width: 200px;
+}
+
+#graph {
+    height: 450px;
+    width: 500px;
+}
+
+.text1 {
+    font-size: 20px;
+}
+
+.text2{
+    margin-left: 50px;
+}
+
+.containertekst {
+    background-color: white;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.knap1,
+.knap2,
+.knap3,
+.knap4 {
+    font-size: 20px;
+    color: black;
+    margin-right: 20px;
+    border: 2px rgb(10, 54, 134);
+}
+
+.knap5{
+    font-size: 40px;
+    color: black;
+    border: 2px rgb(10, 54, 134);
+}
+
+#logOutContainer {
+    position: absolute;
+    top: 10px; /* Juster top-margin efter behov for den ønskede afstand fra toppen */
+    right: 10px; /* Juster right-margin efter behov for den ønskede afstand fra højre kant */
+}
+
+.login-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; 
+    width: 150px; 
+    height: 50px;
+    padding: 10px 20px;
+    border: 2px rgb(10, 54, 134);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.login-button:hover {
+    border: 3px solid rgba(71, 62, 145, 0.922);
+}
+
+.enter-button {
+    right: 30px; 
+    width: 80px; 
+    height: 35px;
+    padding: 10px 20px;
+    border: 2px solid rgb(10, 54, 134);
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: white;
+    outline: none;
+}
+
+.enter-button:hover {
+    border: 3px solid rgba(71, 62, 145, 0.922);
+}
+
+.aflys-button {
+    right: 30px;
+    padding: 10px 20px;
+    border: 2px solid rgb(10, 54, 134);
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: white;
+    outline: none;
+    display: inline-block; /* Gør knappen til et blokelement, så width og height virker som forventet */
+    text-decoration: none; /* Fjern understregning fra knappen */
+}
+
+.aflys-button:hover {
+    border: 3px solid rgba(71, 62, 145, 0.922);
+}
+
+.graf-button {
+    right: 30px; 
+    width: 100px; 
+    height: 35px;
+    padding: 10px 20px;
+    border: 2px solid rgb(10, 54, 134);
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.graf-button:hover {
+    border: 3px solid rgba(71, 62, 145, 0.922);
+}
+
+.logout-button {
+    position: fixed;
+    top: 2%;
+    right: 30px; 
+    width: 90px; 
+    height: 40px;
+    padding: 10px 20px;
+    border: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.logout-button:hover {
+    border: 2px solid rgba(71, 62, 145, 0.922);
+}
+
+.back-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; 
+    width: 90px; 
+    height: 50px;
+    padding: 10px 20px;
+    border: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.back-button:hover {
+    border: 2px solid rgba(71, 62, 145, 0.922);
+}
+
+.nypatient-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; 
+    width: 150px; 
+    height: 50px;
+    padding: 10px 20px;
+    border: 2px rgb(10, 54, 134);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.nypatient-button:hover {
+    border: 3px solid rgba(71, 62, 145, 0.922);
+}
+
+.containerbilleder input {
+    border: 2px solid rgba(71, 62, 145, 0.922);
+    padding: 10px; 
+    border-radius: 10px;
+    margin-right: 20px;
+    background-color: white;
+  }
+
+  .containerbilleder input:hover {
+    border: 3px solid rgba(71, 62, 145, 0.922);
+}
+
+

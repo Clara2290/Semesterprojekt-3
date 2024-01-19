@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>HTML</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style2.css') }}" />
+    <script src="{{ url_for('static', filename= 'js/welcome.js') }}"></script>
+
+
+</head>
+
+<body>
+    <div>
+        <button class="logout-button" onclick="redirectToPage('/logudpatient')">Log ud</button>
+    </div>
+    <div class="containertekst" id="topRight">
+        <div>
+            <p> {{ session['patient_navn'] }}</p>
+          </div>
+        <a href="/patientside1" class="knap1">Kommende tider</a>
+        <a href="/patientside2" class="knap2"><b>Ændre tider</b></a>
+        <a href="/patientside3" class="knap3">Tidligere tider</a>
+        <a href="/patientside4" class="knap3">Mine værdier</a>
+    </div>
+
+
+    <br>
+    <br>
+
+
+    Kommende tider
+    <select class="containertekst" name="drop down" id="dropdown" class="knap5">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+    </td><br>
+    <table class="containerbilleder">
+        <tr id="klikbarrakke1" class="markerbarrakke" onclick="redirectToPage('/patientside2')">
+            <td><img src="static/css/blod.jpg" width="10%" align="left"></td>
+            <td align="left" class="text1">Ambulent konsultation<br>Nordsjællands Hospital<br>Kardiologisk afdeling<br>Dato: 19/07-2024<br>Tidspunkt: 12:00</td>
+            <td>
+                <button class="aflys-button" type="submit">Ændre tid</button>
+                <button class="aflys-button" type="submit">Aflys tid</button>
+            </td>
+        </tr>
+        <tr id="klikbarrakke2" class="markerbarrakke" onclick="redirectToPage('/patientside2')">
+            <td><img src="static/css/rontgen.jpg" width="10%" align="left"></td>
+            <td align="left" class="text1">Ambulent konsultation<br>Nordsjællands Hospital<br>Kardiologisk afdeling<br>Dato: 19/07-2024<br>Tidspunkt: 12:00</td>
+            <td>
+                <button class="aflys-button" type="submit">Ændre tid</button>
+                <button class="aflys-button" type="submit">Aflys tid</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function redirectToPage(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+
+</html>

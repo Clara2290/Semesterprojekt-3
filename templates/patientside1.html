@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTML</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style2.css') }}" />
+    <script src="{{ url_for('static', filename= 'js/welcome.js') }}"></script>
+  </head>
+
+  <body>
+    <div>
+      <button class="logout-button" onclick="redirectToPage('/logudpatient')">Log ud</button>
+    </div>
+    <div class="containertekst" id="topRight">
+      <div>
+        <p> {{ session['patient_navn'] }}</p>
+      </div>
+      <a href="/patientside1" class="knap1"><b>Kommende tider</b></a>
+      <a href="/patientside2" class="knap2">Ændre tider</a>
+      <a href="/patientside3" class="knap3">Tidligere tider</a>
+      <a href="/patientside4" class="knap3">Mine værdier</a>
+    </div>
+    <br />
+    <br />
+
+    <!-- Ny kode til visning af indkaldelsesoplysninger -->
+    <table class="containerbilleder">
+      <tr id="klikbarrakke1" class="markerbarrakke" onclick="redirectToPage('/patientside1')">
+          <td><img src="static/css/blod.jpg" width="10%" align="left"></td>
+          <td align="left" class="text1">Ambulent konsultation<br>Nordsjællands Hospital<br>Kardiologisk afdeling<br>Dato: 19/07-2024<br>Tidspunkt: 12:00</td>
+          <td>
+            <button class="aflys-button" type="submit">Aflys tid</button>
+          </td>
+      </tr>
+      <tr id="klikbarrakke2" class="markerbarrakke" onclick="redirectToPage('/patientside1')">
+          <td><img src="static/css/rontgen.jpg" width="10%" align="left"></td>
+          <td align="left" class="text1">Røntgen<br>Roskilde sygehus<br>Radiografisk afdeling<br>Dato: 19/07-2024<br>Tidspunkt: 12:00</td>
+          <td>
+                   <button class="aflys-button" type="submit">Aflys tid</button>
+          </td>
+      </tr>
+  </table>
+
+    
+
+    <script>
+      function redirectToPage(url) {
+        window.location.href = url;
+      }
+    </script>
+  </body>
+</html>

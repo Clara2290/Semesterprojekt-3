@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style2.css') }}" />
+  <title>Dit Dokument</title>
+</head>
+
+<body>
+
+  <div>
+    <button class="logout-button" onclick="redirectToPage('/logudpatient')">Log ud</button>
+  </div>
+
+  <br />
+
+  <table class="containertekst" align="center">
+    <tr>
+      <td colspan="6">
+        Herunder vælges den dag / de dage, i det / de tidsrum, som passer bedst. I kommentarfeltet nedenfor skrives der,
+        <br>
+        hvis der er bestemte dage man ikke kan. Man får meddelelse, når der er valgt en ny tid, som passer
+        sundhedspersonalet.
+      </td>
+    </tr>
+  </table>
+
+  <div class="container">
+    <form action="/save" method="post">
+      <table class="containerkalender">
+        <tr>
+          <th>Tidspunkt</th>
+          <th>Mandag</th>
+          <th>Tirsdag</th>
+          <th>Onsdag</th>
+          <th>Torsdag</th>
+          <th>Fredag</th>
+        </tr>
+        <tr>
+          <td><input type="text" readonly value="Kl. 10-12"></td>
+          <td><input type='checkbox' name='1'></td>
+          <td><input type='checkbox' name='2'></td>
+          <td><input type='checkbox' name='3'></td>
+          <td><input type='checkbox' name='4'></td>
+          <td><input type='checkbox' name='5'></td>
+        </tr>
+        <tr>
+          <td><input type="text" readonly value="Kl. 13-15"></td>
+          <td><input type='checkbox' name='6'></td>
+          <td><input type='checkbox' name='7'></td>
+          <td><input type='checkbox' name='8'></td>
+          <td><input type='checkbox' name='9'></td>
+          <td><input type='checkbox' name='10'></td>
+        </tr>
+        <tr>
+          <td><input type="text" readonly value="Kl. 16-18"></td>
+          <td><input type='checkbox' name='11'></td>
+          <td><input type='checkbox' name='12'></td>
+          <td><input type='checkbox' name='13'></td>
+          <td><input type='checkbox' name='14'></td>
+          <td><input type='checkbox' name='15'></td>
+        </tr>
+
+        <td><input type="text" readonly value="Alle tidspunker"></td>
+        <td><input type="checkbox"></td>
+
+        </tr>
+      </table><br>
+
+
+      <textarea rows="10" cols="99" placeholder="Skriv specifikke datoer, som ikke passer her"></textarea><br>
+    </form>
+    <div>
+      <button class="knap1" type="submit">Gem</button>
+    </div>
+    <div>
+      <form action="/back">
+        <button class="back-button" onclick="redirectToLogin('/patientside2')">Tilbage</button>
+    </div>
+    </form>
+
+
+  </div>
+  <script>
+    function redirectToPage(url) {
+      window.location.href = url;
+    }
+  </script>
+</body>
+
+</html>

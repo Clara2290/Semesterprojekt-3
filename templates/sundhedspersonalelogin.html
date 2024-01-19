@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename= 'css/index.css') }}"
+    />
+    <script src="{{ url_for('static', filename= 'js/welcome.js') }}"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text2">Sundhedsplatform</h1>
+      <h2>For sundhedspersonale</h2>
+      <form action="/sundhedspersonalelogin" method="post">
+        <!-- Corrected the form action to "/login" -->
+        <div>
+          <label class="text4">Brugernavn</label>
+          <br>
+          <input type="text" name="username" id="username" required />
+        </div>
+        <br>
+        <div>
+          <label class="text4"> Kodeord</label>
+          <br>
+          <input type="password" name="password" id="password" required />
+        </div>
+        <br>
+        <div>
+          <button class="login-button" type="submit" value="Log ind">Login</button>
+        </div>
+        <br>
+        <br>
+        <label class="text4"><i>Har du problemer med dit log-in, kontakt borgerservice.</i></label>
+      </form>
+      <div>
+        <form action="/backtologinsundhedspersonale">
+          <button class="back-button" onclick="redirectToPage('/index')">Tilbage</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      function redirectToPage(url) {
+        window.location.href = url;
+      }
+    </script>
+    </div>
+  </body>
+</html>
